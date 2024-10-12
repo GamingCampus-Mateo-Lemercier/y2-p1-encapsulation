@@ -8,6 +8,7 @@
 #include "BreakableObject.h"
 #include "Mob.h"
 #include "Player.h"
+#include "World.h"
 
 
 
@@ -53,8 +54,18 @@ void Exercice10()
 
 
 
+void Exercice12()
+{
+    World world;
+    world.Init();
+    while ( world.Step() );
+}
+
+
+
 int main()
 {
     Exercice10();
+    Exercice12();
     return 0;
 }

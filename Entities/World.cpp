@@ -20,7 +20,7 @@ void World::Init()
     m_entities.push_back( pPlayer );
 }
 
-void World::Step()
+bool World::Step()
 {
     BreakableObject* pBreakableObject( nullptr );
     Mob* pMob( nullptr );
@@ -57,7 +57,7 @@ void World::Step()
         pPlayer->Move();
         if ( pPlayer->GetPosition().DistanceToSquared( pMob->GetPosition() ) < 1 )
             pPlayer->Attack( pMob );
-        return;
+        return true;
     }
     
     if ( pBreakableObject->GetHealth() > 0.0f )
@@ -70,8 +70,9 @@ void World::Step()
         pPlayer->Move();
         if ( pPlayer->GetPosition().DistanceToSquared( pBreakableObject->GetPosition() ) < 1 )
             pPlayer->Attack( pBreakableObject );
-        return;
+        return true;
     }
     
     std::cout << "Simulation Finished" << std::endl;
+    return false;
 }

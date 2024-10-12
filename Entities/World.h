@@ -10,7 +10,7 @@ class World
 {
 public:
     void Init();
-    void Step();
+    bool Step();
 
 protected:
     std::vector<Entity*> m_entities;
