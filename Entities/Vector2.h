@@ -17,7 +17,16 @@ public:
     void SetX( float x );
     void SetY( float y );
     
+    [[nodiscard]] float GetNorm() const;
+    [[nodiscard]] float GetNormSquared() const;
+    void Normalize();
+    
+    [[nodiscard]] float DistanceToSquared( const Vector2& other ) const;
+    
+    [[nodiscard]] Vector2 operator-( const Vector2& other ) const;
+    
     void operator+=( const Vector2& other );
+    void operator-=( const Vector2& other );
     void operator*=( float scalar );
     
     friend std::ostream& operator<<( std::ostream& os, const Vector2& vector );

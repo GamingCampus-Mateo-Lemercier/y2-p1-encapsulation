@@ -1,4 +1,5 @@
 #include "Vector2.h"
+#include <cmath>
 
 
 
@@ -30,10 +31,43 @@ void Vector2::SetY( const float y )
 
 
 
+float Vector2::GetNorm() const
+{ return sqrtf( m_x * m_x + m_y * m_y ); }
+
+float Vector2::GetNormSquared() const
+{ return m_x * m_x + m_y * m_y; }
+
+void Vector2::Normalize()
+{
+    float norm = GetNorm();
+    if ( norm == 0.0f ) return;
+    float invNorm = 1.0f / norm;
+    m_x *= invNorm;
+    m_y *= invNorm;
+}
+
+
+
+float Vector2::DistanceToSquared( const Vector2& other ) const
+{ return ( other - *this ).GetNormSquared(); }
+
+
+
+Vector2 Vector2::operator-( const Vector2& other ) const
+{ return Vector2( m_x - other.m_x, m_y - other.m_y ); }
+
+
+
 void Vector2::operator+=( const Vector2& other )
 {
     m_x += other.m_x;
     m_y += other.m_y;
+}
+
+void Vector2::operator-=( const Vector2& other )
+{
+    m_x -= other.m_x;
+    m_y -= other.m_y;
 }
 
 void Vector2::operator*=( const float scalar )
