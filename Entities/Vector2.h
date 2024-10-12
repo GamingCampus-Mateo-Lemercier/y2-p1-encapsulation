@@ -1,6 +1,8 @@
 #ifndef VECTOR2_H__
 #define VECTOR2_H__
 
+#include <iostream>
+
 
 
 class Vector2
@@ -14,6 +16,8 @@ public:
     
     void SetX( float x );
     void SetY( float y );
+    
+    friend std::ostream& operator<<( std::ostream& os, const Vector2& vector );
 
 protected:
     float m_x;

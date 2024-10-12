@@ -27,3 +27,11 @@ void Vector2::SetX( const float x )
 
 void Vector2::SetY( const float y )
 { m_y = y; }
+
+
+
+std::ostream& operator<<( std::ostream& os, const Vector2& vector )
+{
+    os << "x = " << vector.m_x << " and y = " << vector.m_y;
+    return os;
+}
