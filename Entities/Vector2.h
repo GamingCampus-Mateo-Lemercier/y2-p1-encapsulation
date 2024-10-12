@@ -17,6 +17,9 @@ public:
     void SetX( float x );
     void SetY( float y );
     
+    void operator+=( const Vector2& other );
+    void operator*=( float scalar );
+    
     friend std::ostream& operator<<( std::ostream& os, const Vector2& vector );
 
 protected:

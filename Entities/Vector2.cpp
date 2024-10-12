@@ -30,6 +30,20 @@ void Vector2::SetY( const float y )
 
 
 
+void Vector2::operator+=( const Vector2& other )
+{
+    m_x += other.m_x;
+    m_y += other.m_y;
+}
+
+void Vector2::operator*=( const float scalar )
+{
+    m_x *= scalar;
+    m_y *= scalar;
+}
+
+
+
 std::ostream& operator<<( std::ostream& os, const Vector2& vector )
 {
     os << "x = " << vector.m_x << " and y = " << vector.m_y;
